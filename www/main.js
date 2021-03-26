@@ -33,9 +33,31 @@ const wasmTerminal = new WasmTerminal({
   wasmFs: new WasmFs()
 });
 
-wasmTerminal.print('Hello World!');
-wasmTerminal.xterm.setOption('fontFamily','Cascadia Mono');
-wasmTerminal.xterm.setOption('fontWeight','300');
+wasmTerminal.xterm.setOption('fontFamily', 'Cascadia Mono');
+wasmTerminal.xterm.setOption('fontWeight', '400');
+wasmTerminal.xterm.setOption('lineHeight', '1.1');
+wasmTerminal.xterm.setOption('cursorBlink', true);
+wasmTerminal.xterm.setOption('theme', { // taken from campbell theme
+  "foreground": "#CCCCCC",
+  "background": "#0C0C0C",
+  "cursorColor": "#FFFFFF",
+  "black": "#0C0C0C",
+  "red": "#C50F1F",
+  "green": "#13A10E",
+  "yellow": "#C19C00",
+  "blue": "#0037DA",
+  "purple": "#881798",
+  "cyan": "#3A96DD",
+  "white": "#CCCCCC",
+  "brightBlack": "#767676",
+  "brightRed": "#E74856",
+  "brightGreen": "#16C60C",
+  "brightYellow": "#F9F1A5",
+  "brightBlue": "#3B78FF",
+  "brightPurple": "#B4009E",
+  "brightCyan": "#61D6D6",
+  "brightWhite": "#F2F2F2"
+});
 
 const containerElement = document.querySelector('#app');
 wasmTerminal.open(containerElement);
