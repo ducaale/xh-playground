@@ -21,7 +21,7 @@ const fetchCommandHandler = async ({args}) => {
       // wasmFs.fs.writeFileSync("/dev/stderr", "Quick Start!");
 
       const mod = await xh();
-      return mod.run();
+      return mod.run(options.args);
     }
   }
 

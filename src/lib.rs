@@ -1,14 +1,25 @@
 use std::fmt::Write;
+use cli::Cli;
+use structopt::StructOpt;
 use wasm_bindgen::prelude::*;
 
+mod cli;
 mod utils;
 
 #[wasm_bindgen]
-pub async fn run() -> Result<JsValue, JsValue> {
+pub async fn run(args: js_sys::Array) -> Result<JsValue, js_sys::Error> {
     console_error_panic_hook::set_once();
 
+    let args: Vec<String> = args.iter().map(|x| x.as_string().unwrap()).collect();
+    let args = match Cli::from_iter_safe(args.iter()) {
+        Ok(args) => args,
+        Err(err) => {
+            return Ok(err.message.into())
+        }
+    };
+
     let res = reqwest::Client::new()
-        .get("https://httpbin.org/json")
+        .get(args.url)
         .send()
         .await?;
 
