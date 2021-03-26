@@ -20,6 +20,9 @@ const fetchCommandHandler = async ({args}) => {
       // output to stderr
       // wasmFs.fs.writeFileSync("/dev/stderr", "Quick Start!");
 
+      // TODO: figure out how to check tty mode (probably not supported
+      // in WasmTerminal at the moment)
+
       const mod = await xh();
       return mod.run(options.args);
     }
