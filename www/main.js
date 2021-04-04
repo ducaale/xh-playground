@@ -36,8 +36,7 @@ const wasmTerminal = new WasmTerminal({
   wasmFs: new WasmFs()
 });
 
-wasmTerminal.xterm.setOption('fontFamily', 'Cascadia Mono');
-wasmTerminal.xterm.setOption('fontWeight', '400');
+wasmTerminal.xterm.setOption('fontFamily', `'Fira Mono', monospace`);
 wasmTerminal.xterm.setOption('lineHeight', '1.1');
 wasmTerminal.xterm.setOption('cursorBlink', true);
 wasmTerminal.xterm.setOption('theme', { // taken from campbell theme
