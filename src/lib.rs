@@ -10,7 +10,9 @@ mod utils;
 pub async fn run(args: js_sys::Array) -> Result<JsValue, js_sys::Error> {
     console_error_panic_hook::set_once();
 
+    // https://rustwasm.github.io/docs/wasm-bindgen/reference/arbitrary-data-with-serde.html
     let args: Vec<String> = args.iter().map(|x| x.as_string().unwrap()).collect();
+
     let args = match Cli::from_iter_safe(args.iter()) {
         Ok(args) => args,
         Err(err) => {

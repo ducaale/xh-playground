@@ -1,4 +1,5 @@
 import WasmTerminal, { fetchCommandFromWAPM } from '@wasmer/wasm-terminal';
+import processWorkerUrl from '@wasmer/wasm-terminal/lib/workers/process.worker?worker';
 import xh from '../Cargo.toml';
 import 'xterm/css/xterm.css';
 import './style.css';
@@ -32,6 +33,7 @@ const fetchCommandHandler = async ({args}) => {
 
 const wasmTerminal = new WasmTerminal({
   fetchCommand: fetchCommandHandler,
+  processWorkerUrl
 });
 
 wasmTerminal.xterm.setOption('fontFamily', `'Fira Mono', monospace`);
