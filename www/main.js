@@ -40,26 +40,32 @@ wasmTerminal.xterm.setOption('fontFamily', `'Fira Mono', monospace`);
 wasmTerminal.xterm.setOption('lineHeight', '1.1');
 wasmTerminal.xterm.setOption('cursorBlink', true);
 wasmTerminal.xterm.setOption('theme', { // taken from campbell theme
-  "foreground": "#CCCCCC",
-  "background": "#0C0C0C",
-  "cursorColor": "#FFFFFF",
-  "black": "#0C0C0C",
-  "red": "#C50F1F",
-  "green": "#13A10E",
-  "yellow": "#C19C00",
-  "blue": "#0037DA",
-  "purple": "#881798",
-  "cyan": "#3A96DD",
-  "white": "#CCCCCC",
-  "brightBlack": "#767676",
-  "brightRed": "#E74856",
-  "brightGreen": "#16C60C",
-  "brightYellow": "#F9F1A5",
-  "brightBlue": "#3B78FF",
-  "brightPurple": "#B4009E",
-  "brightCyan": "#61D6D6",
-  "brightWhite": "#F2F2F2"
+  foreground: '#CCCCCC',
+  background: '#0C0C0C',
+  cursorColor: '#FFFFFF',
+  black: '#0C0C0C',
+  red: '#C50F1F',
+  green: '#13A10E',
+  yellow: '#C19C00',
+  blue: '#0037DA',
+  purple: '#881798',
+  cyan: '#3A96DD',
+  white: '#CCCCCC',
+  brightBlack: '#767676',
+  brightRed: '#E74856',
+  brightGreen: '#16C60C',
+  brightYellow: '#F9F1A5',
+  brightBlue: '#3B78FF',
+  brightPurple: '#B4009E',
+  brightCyan: '#61D6D6',
+  brightWhite: '#F2F2F2'
 });
+
+wasmTerminal.print(
+  'A (WIP) WASM-powered playground for https://github.com/ducaale/xh.\n' +
+  'Non-HTTPS requests might not work due to the Mixed content policy. ' +
+  'See https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content.\n\n'
+);
 
 const containerElement = document.querySelector('#app');
 wasmTerminal.open(containerElement);
